@@ -1,0 +1,220 @@
+// Mouse Circle
+const mouseCircle = document.querySelector(".mouse-circle");
+const mouseDot = document.querySelector(".mouse-dot");
+
+const mouseCircleFn = (x, y) => {
+    mouseCircle.style.cssText = `top: ${y}px; left: ${x}px`;
+    mouseDot.style.cssText = `top: ${y}px; left: ${x}px`;
+};
+// End of Mouse Circle
+
+
+// Animated Circles
+const circles = document.querySelectorAll(".circle");
+const mainImg = document.querySelector(".main-circle img");
+
+let mX = 0;
+let mY = 0;
+
+const animateCircles = (e,x,y) => {
+    if(x < mX) {
+        circles.forEach((circle) => {
+            circle.style.left = `100px`;
+        });
+        mainImg.style.left = `100px`;
+    } else if(x > mX) {
+        circles.forEach((circle) => {
+            circle.style.left = `-100px`;
+        });
+        mainImg.style.left = `-100px`;  
+    }
+
+
+    if (y < mY) {
+        circles.forEach((circle) => {
+            circle.style.top = `100px`;
+        });
+        mainImg.style.top = `100px`;
+    } else if(y > mY) {
+        circles.forEach((circle) => {
+            circle.style.top = `-100px`;
+        });
+        mainImg.style.top = `-100px`;  
+    }
+
+    mX = e.clientX;
+    mY = e.clientY;
+};
+
+
+document.body.addEventListener("mousemove", (e) => {
+let x = e.clientX;
+let y = e.clientY;
+
+    mouseCircleFn(x,y);
+    animateCircles(e,x,y);
+});
+
+
+
+const animatecircles = (e,x,y) => {
+    if(x < mX) {
+        circles.forEach((circle) => {
+            circle.style.left = `100px`;
+        });
+        mainImg.style.left = `100px`;
+    } else if(x > mX) {
+        circles.forEach((circle) => {
+            circle.style.left = `-100px`;
+        });
+        mainImg.style.left = `-100px`;  
+    }
+
+
+    if (y < mY) {
+        circles.forEach((circle) => {
+            circle.style.top = `100px`;
+        });
+        mainImg.style.top = `100px`;
+    } else if(y > mY) {
+        circles.forEach((circle) => {
+            circle.style.top = `-100px`;
+        });
+        mainImg.style.top = `-100px`;  
+    }
+
+    mX = e.clientX;
+    My = e.clientY;
+};
+// End of Animated Circles
+
+
+// Main Buttom
+const mainBtns = document.querySelectorAll(".main-btn");
+
+mainBtns.forEach(btn => {
+    let ripple;
+
+ btn.addEventListener("mouseenter",(e) => {
+  const left = e.clientX - e.target.getBoundingClientRect().
+  left;
+
+  const right = e.clientY - e.target.getBoundingClientRect().
+  top;
+
+  ripple = document.createElement("div");
+  ripple.classList.add("ripple");
+  ripple.style.left = `${left}px`;
+  ripple.style.top = `${top}px`;
+  btn.prepend(ripple);
+  });
+
+  btn.addEventListener("mouseleave", () => {
+  btn.removeChild(ripple);
+  });
+
+  })
+
+// End of Main Butoon 
+
+// Navigation 
+const menuIcon = document.querySelector(".menu-icon");
+const navbar = document.querySelector(".navbar");
+
+document.addEventListener("scroll", () => {
+    menuIcon.classList.add("show-menu-icon");
+    navbar.classList.add("hide-navbar");
+
+    if(window.scrollY === 0) {
+        menuIcon.classList.remove("show-menu-icon");
+        navbar.classList.remove("hide-navbar");
+    }
+});
+
+menuIcon.addEventListener("click", () => {
+    menuIcon.classList.remove("show-menu-icon");
+    navbar.classList.remove("hide-navbar");
+});
+// End of Navigation 
+
+
+// Projects
+const container = document.querySelector(".container");
+const projects = document.querySelectorAll(".project");
+const projectHideBtn = document.querySelector(".project-hide-btn");
+
+projects.forEach(project => {
+    project.addEventListener('mouseenter', () => {
+        project.firstElementChild.style.top = `-${project.firstElementChild.offsetHeight - project.offsetHeight + 20 }px`;
+
+    });
+
+    project.addEventListener('mouseleave', () => {
+        project.firstElementChild.style.top = "2rem";
+    });
+
+ 
+
+   // Big Project Image
+   project.addEventListener("click",() => {
+    const bigImgWrapper = document.createElement("div");
+    bigImgWrapper.className = "project-img-wrapper";
+    container.appendChild(bigImgWrapper);
+
+    const bigImg = document.createElement("img");
+    bigImg.className = "project-img";
+    const imgPath = project.firstElementChild.getAttribute
+    ("src").split(".")[0];
+    bigImg.setAttribute("src", `${imgPath}.JPEG`);
+    bigImgWrapper.appendChild(bigImg);
+    document.body.style.overflowY = "hidden";
+
+    projectHideBtn.classList.add("change");
+
+    projectHideBtn.onclick = () => {
+        projectHideBtn.classList.remove("change");
+        bigImgWrapper.remove()
+        document.body.style.overflowY = "scroll";
+    };
+});
+// End of Big Project Image
+
+});
+// End of Prtojects 
+// End of Form
+
+// Slideshow
+const slideshow = document.querySelector(".slideshow");
+
+setInterval(() => {
+const firstIcon = slideshow.firstElementChild;
+
+firstIcon.classList.add("faded-out");
+
+const thirdIcon = slideshow.children[3]
+
+thirdIcon.classList.add("light");
+
+thirdIcon.previousElementSibling.classList.remove("light");
+
+setTimeout(() => {
+    slideshow.removeChild(firstIcon);
+
+    slideshow.appendChild(firstIcon);
+
+
+    setTimeout(() => {
+        firstIcon.classList.remove("faded-out");
+    }, 500);
+
+}, 500);
+}, 3000);
+
+
+
+
+
+// End of Slideshow
+// End of Section 5
+
+

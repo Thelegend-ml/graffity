@@ -1,0 +1,627 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+
+
+/* Common Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+    font-family: "Jura", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Buttom */
+.main-btn {
+    position: absolute;
+    bottom: 3rem;
+    width: 13rem;
+    height: 13rem;
+    background-color: #9b0e0e;
+    border-radius: 50%;
+    border: 0.2rem dotted white;
+    padding: 0.1rem;
+    overflow: hidden;
+}
+
+.main-btn-content {
+    width: 100%;
+    height: 100%;
+    border: 0.2rem dotted #e7be08;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    transition: transform 0.2s, border 0.2s;
+
+}
+
+.main-btn:hover .main-btn-content {
+    transform: rotate(45deg);
+    border: 0.2rem dotted #9b0e0e;
+    transition: transform 0.2s 0.5s, border 0.2s;
+}
+
+.main-btn-line {
+    position: absolute;
+    top: 4rem;
+    width: 3rem;
+    height: 0.5rem;
+    border: 0.1rem solid #fff;
+}
+
+
+
+.main-btn-line:nth-child(1) {
+    transform: rotateZ(-45) translateX(-.65rem);
+    transform-origin: left center;
+    border-right: none;
+}
+
+.main-btn-line:nth-child(2) {
+    transform: rotateZ(45) translateX(0.65rem);
+    transform-origin: right center;
+    border-left: none;
+
+}
+
+.main-btn-line:nth-child(3) {
+    transform: rotateZ(90deg) translateX(0.5rem);
+    border-left: none;
+
+}
+
+.main-btn span {
+    position: absolute;
+    bottom: 3rem;
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.ripple {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: #e7be08;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rippleAnim 0.5s forwards;
+}
+
+@keyframes rippleAnim {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 210%;
+        height: 210%;
+    }
+}
+/* End of Main Buttom */
+
+/* End of Common styles */
+
+/* Mouse Circle */
+.mouse-circle,
+.mouse-dot {
+    border-radius: 50%;
+    position: fixed;
+    z-index: 300;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+}
+
+
+.mouse-circle {
+    width: 6rem;
+    height: 6rem;
+    border: 0.1rem solid #c7a622;
+    animation: mousecircleAnim 10s 
+    infinite linear;
+}
+
+@keyframes mousecircleAnim {
+
+    0% {
+        width: 6rem;
+        height: 6rem;
+    }
+    25% {
+        width: 8rem;
+        height: 8rem;
+    }
+    35% {
+        width: 4rem;
+        height: 4rem;
+    }
+    70% {
+        width: 8rem;
+        height: 8rem;
+    }
+    100% {
+        width: 6rem;
+        height: 6rem;
+    }
+    
+}
+
+.mouse-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: red;
+    animation: mouseDotAnim 10s infinite linear;
+}
+
+@keyframes mouseDotAnim {
+    0% {
+        width: .5rem;
+        height: .5rem;
+    }
+    55% {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    100% {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+}
+/* End of Mouse Circle */
+
+/* Featured Text */
+.featured-text {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    width: 0;
+    word-wrap: break-word;
+    line-height: 3.5;
+    position: fixed;
+    top: 10;
+    
+}
+
+.featured-text-1 {
+    margin: 0 auto 0 10rem;
+}
+
+.featured-text-2 {
+    margin: 0 10rem 0 auto;
+}
+/* End of Featured Text */
+
+
+/* Page BG */
+.page-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-image: url("atitlan.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* End of Page BG*/
+
+/* Navigation */
+
+/* Menu Icon */
+.menu-icon {
+    position: fixed;
+    top: 0;
+    right: 6rem;
+    width: 12rem;
+    height: 7rem;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.menu-icon-line {
+    width: 4rem;
+    height: 0.1rem;
+    background-color: #fff;
+    margin: 0.5rem 0;
+    box-shadow: 0 0.3rem 0.5rem #000;
+}
+
+.show-menu-icon {
+    opacity: 1;
+    visibility: visible;
+}
+/* End of Menu Icon */
+
+
+/* Navbar */
+
+.navbar {
+    position: fixed;
+    top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+    z-index: 100;
+    transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+
+
+}
+
+.navbar-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 2.5rem;
+    text-shadow: 0 0.3rem 0.5rem #000;
+}
+
+
+.hide-navbar {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10rem);
+}
+
+/* End of Navbar */
+/* End of Navigation */
+
+
+/* Section 1 */
+.section-1 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color:white;
+}
+/* End of Logo */
+
+/* Animated Circles */
+.circles {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.circle {
+    width: 22rem;
+    height: 22rem;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+    opacity: 0.5;
+    position: relative;
+    
+}
+
+.circle-1 {
+    background: url("flag.png") center no-repeat;
+    background-size: cover;
+    background-clip: content-box;
+    margin-right: 10rem; 
+}
+
+.circle-2 {
+    background: url("maya.png") center no-repeat;
+    background-size: cover;
+    background-clip: content-box;
+    margin-right: -10rem;
+
+}
+
+.circle-3 {
+    background: url("quetzal.png") center no-repeat;
+    background-size: cover;
+    background-clip: content-box;
+    margin-left: -10rem;
+
+}
+
+.circle-4 {
+    background: url("numeraciones.png") center no-repeat;
+    background-size: cover;
+    background-clip: content-box;
+    margin-right: -10rem;
+
+
+}
+
+
+.main-circle {
+    width: 55rem;
+    height: 55rem;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+
+.main-circle img {
+    position: relative;
+    transition: left 2s, top 2s;
+}
+/* End of Animated Circles */
+
+
+
+/* Main Buttom */
+.main-btn {
+    position: absolute;
+    bottom: 3rem;
+    width: 13rem;
+    height: 13rem;
+    background-color: #9b0e0e;
+    border-radius: 50%;
+    border: 0.2rem dotted white;
+    padding: 0.1rem;
+    overflow: hidden;
+}
+
+.main-btn-content {
+    width: 100%;
+    height: 100%;
+    border: 0.2rem dotted #e7be08;
+    border-radius: 50%;
+    transform: rotate(40deg);
+    transition: transform 0.2s, border 0.2s;
+
+}
+
+.main-btn:hover .main-btn-content {
+    transform: rotate(60deg);
+    border: 0.2rem dotted #9b0e0e;
+    transition: transform 0.2s 0.5s, border 0.2s;
+}
+
+.main-btn-line {
+    position: absolute;
+    top: 4rem;
+    width: 3rem;
+    height: 0.5rem;
+    border: 0.1rem solid #fff;
+}
+
+
+
+.main-btn-line:nth-child(1) {
+    transform: rotateZ(-45deg) translateX(-.65rem);
+    transform-origin: left center;
+    border-right: none;
+}
+
+.main-btn-line:nth-child(2) {
+    transform: rotateZ(45deg) translateX(0.65rem);
+    transform-origin: right center;
+    border-left: none;
+
+}
+
+.main-btn-line:nth-child(3) {
+    transform: rotateZ(90deg) translateX(0.5rem);
+    border-left: none;
+
+}
+
+.main-btn span {
+    position: absolute;
+    bottom: 3rem;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.ripple {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: #e7be08;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rippleAnim 0.5s forwards;
+}
+
+@keyframes rippleAnim {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 210%;
+        height: 210%;
+    }
+}
+/* End of Main Buttom */
+
+/* End of Section 1 */
+
+
+/* Section 2 */
+.section-2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color:white;
+}
+/* End of Logo */
+
+/* Featured Text */
+.featured-text {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    width: 0;
+    word-wrap: break-word;
+    line-height: 3.5;
+    position: sticky;
+    top: 0;
+    
+}
+
+.featured-text-1 {
+    margin: 0 auto 0 10rem;
+}
+
+.featured-text-2 {
+    margin: 0 10rem 0 auto;
+}
+/* End of Featured Text */
+
+
+/* Images */
+.current-img {
+    position: absolute;
+    top: 25rem;
+    left: 50rem;
+    right: 10rem;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* End of Images */
+
+/* End of Section 2 */
+
+/* Section 3 */
+.section-3 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color:white;
+}
+/* End of Logo */
+
+
+/* Images */
+.current-img {
+    position: absolute;
+    top: 25rem;
+    left: 30rem;
+    right: 10rem;
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+/* End of Images */
+
+
+/* End of Section 3 */
+
+
+/* Section 4 */
+
+.section-4 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color:white;
+}
+/* End of Logo */
+
+/* Logo Image */
+.la-times img {
+    position: absolute;
+    top: 25rem;
+    left: 30rem;
+    right: 0rem;
+    width: 10%;
+    height: 14%;
+    display: grid;
+    cursor: progress;
+}
+
+.facebook img {
+    position: absolute;
+    top: 25rem;
+    left: 45rem;
+    right: 0rem;
+    width: 13%;
+    height: 14%;
+    display: grid;
+    cursor: progress;
+}
+
+.LAPD img {
+    position: absolute;
+    top: 25rem;
+    left: 65rem;
+    right: 0rem;
+    width: 10%;
+    height: 14%;
+    display: grid;
+    cursor: progress;
+}
+/* End of Logo Image */
+/* End of section */
+
+
