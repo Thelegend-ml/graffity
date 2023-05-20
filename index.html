@@ -131,7 +131,7 @@
 
 <!-- Images -->
 <div class="current-img center">
-    <img src="futered-light-box.png" width="800" height="400">
+    <img src="futered-light-box.png" width="700" height="300">
 </div>
     <!-- End of Images -->
 
@@ -170,54 +170,38 @@
 
 
                 <!-- Section 5 -->
-    <section class="section-5 center" id="section-5">
-    <!-- Form Validation -->
-                <div class="form-wrapper">
-                    <h2 class="form-heading">Let's Talk!</h2>
-                        <form class="contact-form center">
-                        <input
-                        type="text" 
-                        class="contact-form-input pointer-enter"
-                        placeholder="Name"
-                        id="name"
-                        autocomplete="on"
-                        />
+                <section class="section-5 center" id="section-5">
+                <!-- Form -->
+                    <div class="form-wrapper">
+                    <h2 class="form-heading">Let's Talk</h2>
+                    <form class="contact-form center" action="POST" data-netlify="true">
+                        <input type="text" class="contact-form-input"
+                        placeholder="Name" id="name" autocomplete="off" name="name">
 
-                        <p class="message">Error Message</p>
-                        <input 
-                        type="text" 
-                        class="contact-form-input pointer enter"
-                        placeholder="Email"
-                        id="email"
-                        autocomplete="on"
-                        />
-                        
-                        <p class="message">Error Message</p>
-                        <input 
-                        type="text" 
-                        class="contact-form-input pointer enter"
-                        placeholder="Subject"
-                        id="subject"
-                        autocomplete="on"
-                        />
+                        <input type="email" class="contact-form-input"
+                        placeholder="Email" id="email" autocomplete="off" name="email">
 
-                        <p class="message">Error Message</p>
-                        <textarea 
-                        class="contact-form-input contact-form-textarea pointer enter"
+                        <input type="text" class="contact-form-input pointer-enter"
+                        placeholder="Subject" id="subject" autocomplete="off" name="subject">
+
+                        <textarea
+                        class="contact-form-input contact-form-textarea"
                         placeholder="Message"
-                        id="message"
-                        autocomplete="on"
+                        autocomplete="off"
+                        name="message"
                         ></textarea>
-
                         <p class="message">Error Message</p>
-                        <input 
+
+                        <input
                         type="submit"
-                        class="form-submit-btn pointer enter"
-                        value="Send Request"
-                        />
+                        class="form-submit-btn" 
+                        value="Send Request">
                     </form>
                 </div>
-                <!-- End of Form Validation -->
-<script src="script.js"></script>
+
+                </section>
+                <!-- End of Form -->
+    <script src="script.js"></script>
 </body>
 </html>
+
