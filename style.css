@@ -553,11 +553,11 @@ html {
 .current-img {
     position: absolute;
     top: 25rem;
-    left: 15rem;
+    left: 30rem;
+    right: 10rem;
     width: 100%;
     height: 100%;
     display: grid;
-    justify-content: center;
 }
 /* End of Images */
 
@@ -632,14 +632,24 @@ html {
 }
 
 /* Form */
+.massage {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin: 0 auto 1rem 0;
+}
+
+
 .form-heading {
     font-family: 'Tangerine', serif;
-    font-size: 6rem;
+    font-size: 10rem;
+    text-shadow: 4px 4px 4px #aaa;
     font-weight: 400;
-    color: #9b0e0e;
+    color: orange;
     letter-spacing: 0.3rem;
     margin-bottom: 3rem;
-    transition: opacity 0.3s;
 }
 
 .contact-form {
@@ -671,14 +681,16 @@ html {
     border: none;
     align-self: flex-start;
     font-size: 1.8rem;
-    color: #fff;
+    color: orange;
+
 }
-/* End of Form */
+
+
 /* Form Validation */
 .message {
     font-size: 1.2rem;
     font-weight: 700;
-    color: red;
+    color: #f55e5e;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     margin: 0 auto 1rem 0;
@@ -692,6 +704,7 @@ html {
     opacity: 1;
 }
 /* End of Form Validation */
+/* End of Form */
 
 
 /* End of Section 5 */
