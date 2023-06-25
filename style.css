@@ -752,10 +752,7 @@ html {
         height: 12.5rem;
     }
 
-    .circle {
-        display: none;
-    }
-
+    
     .progress-bar {
         right: 1rem;
         bottom: 0;
